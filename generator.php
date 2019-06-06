@@ -62,12 +62,12 @@ $file = file_get_contents('Peruskartta_v3.template.xml' );
 
 $matches = [];
 
-echo "<h1>MTK - suomi teemaeditori</h1>\n";
-
 preg_match_all('/{(.*?)}/im', $file, $matches);
 
 $all_tags = array_unique( $matches[1] );
+
 ?>
+<h1>MTK - suomi teemaeditori</h1>
 <form>
 <table class="table">
     <thead class="thead-dark">
@@ -149,7 +149,7 @@ echo "</div>\n";
 
        var template;
 
-       fetch('Peruskartta_v3.template.xml')
+       fetch('https://joni-lindqvist.github.io/MTK-finland-theme-editor/Peruskartta_v3.template.xml')
             .then(response => response.text())
             .then(text => template_substitute(text, data));
 
@@ -158,15 +158,19 @@ echo "</div>\n";
 
 	function template_substitute( template, data){
 	    var parsed = template;
+
 	    $.each( data, function( key, val){
-	       parsed = parsed.replace('{'+val.name+'}', val.value);
+            var regex = new RegExp('{'+val.name+'}', 'g');
+	        parsed = parsed.replace(regex, val.value);
         });
 
-        var a = jQuery('#download');
+	    var a = jQuery('#download');
 
         a.fadeIn('quick');
 
         a=a[0];
+
+        console.log( parsed );
 
         var file = new Blob([parsed], {type: 'application/xml'});
         a.href = URL.createObjectURL(file);

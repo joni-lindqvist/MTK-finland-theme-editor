@@ -379,7 +379,7 @@
 
        var template;
 
-       fetch('Peruskartta_v3.template.xml')
+       fetch('https://joni-lindqvist.github.io/MTK-finland-theme-editor/Peruskartta_v3.template.xml')
             .then(response => response.text())
             .then(text => template_substitute(text, data));
 
@@ -388,15 +388,19 @@
 
 	function template_substitute( template, data){
 	    var parsed = template;
+
 	    $.each( data, function( key, val){
-	       parsed = parsed.replace('{'+val.name+'}', val.value);
+            var regex = new RegExp('{'+val.name+'}', 'g');
+	        parsed = parsed.replace(regex, val.value);
         });
 
-        var a = jQuery('#download');
+	    var a = jQuery('#download');
 
         a.fadeIn('quick');
 
         a=a[0];
+
+        console.log( parsed );
 
         var file = new Blob([parsed], {type: 'application/xml'});
         a.href = URL.createObjectURL(file);
