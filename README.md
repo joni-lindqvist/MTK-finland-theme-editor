@@ -19,6 +19,8 @@ File generaton uses javascript to generate the actual XML theme file
 
 ### Using theme file with Locus
 
+Too it self can be found here: https://joni-lindqvist.github.io/MTK-finland-theme-editor/generator.html
+
 Copy generated file to `/Locus/mapsVector/_themes/` if existing theme files exist remove the old MTK-theme file
 
 ### Using theme file with Orux
@@ -36,6 +38,8 @@ Kyseessä on simppeli työkalu LocusMapin kartta-aineiston teeman muuttamiseen. 
 Editori perustuu https://github.com/pailakka/mtk2garmin -projektiin ja kartta-aineistot löytyvät osoitteesta: kartat.hylly.org
 
 ### Käyttö Locusilla
+
+Itse työkalu löytyy täältä: https://joni-lindqvist.github.io/MTK-finland-theme-editor/generator.html
 
 Tee haluamasi muutokset työkalulla ja kopioi saatu tiedosto hakemistoon `/Locus/mapsVector/_themes/`. Jos hakemistossa on aiempia teematiedostoja MTK:n karttoja varten, poista ne.
 

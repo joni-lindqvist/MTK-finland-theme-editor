@@ -62,7 +62,7 @@ $file = file_get_contents('Peruskartta_v3.template.xml' );
 
 $matches = [];
 
-echo "<h1>Kapsi MTK - Mapsforge teemaeditori (Locus + Oruxmaps)</h1>\n";
+echo "<h1>MTK - suomi teemaeditori</h1>\n";
 
 preg_match_all('/{(.*?)}/im', $file, $matches);
 
@@ -97,7 +97,7 @@ foreach ($all_tags as $val){
 		case 'FW': echo "<td>Täytön leveys</td> <td><input class='form-control' type='number' min='0' max='10' step='0.1' value=0.8  name='$val'></td>";break;
 		case 'FC': echo "<td>Täytön väri</td> 
                          <td class='color-pick'><div class='input-group colorpicker-component'>
-                                <input type='text' value='#ff0099' class='form-control' name='$val'/>
+                                <input type='text' value='#ff0000' class='form-control' name='$val'/>
                                 <span class='input-group-addon'><i></i></span>
                             </div></td>";break;
 		case 'EC': echo "<td>Reunan väri</td> 
